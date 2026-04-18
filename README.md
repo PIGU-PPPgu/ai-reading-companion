@@ -16,9 +16,15 @@
 <table>
 <tr>
 <td><img src="screenshots/chat-session.png" alt="Chat Session" width="400"/></td>
-<td><img src="screenshots/knowledge-graph.png" alt="Knowledge Graph" width="400"/></td>
+<td><img src="screenshots/interactive-graph.png" alt="Interactive Knowledge Graph" width="400"/></td>
 </tr>
 </table>
+
+### 🕸️ 交互式知识图谱系统
+- **掌握度可视化**：绿=已掌握，黄=学习中，红=薄弱，灰=未学习
+- **自动生成**：导入教材自动提取知识点树（学科→章节→知识点→考点）
+- **动态点亮**：随对话/测验自动更新节点掌握度
+- **D3.js 力导向图**：支持缩放、拖拽、点击交互
 
 ## 核心能力（17 Capabilities + 9 Tools）
 
