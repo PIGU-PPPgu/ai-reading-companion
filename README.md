@@ -28,25 +28,25 @@
 
 ## 核心能力（17 Capabilities + 9 Tools）
 
-| 模块 | 功能 | 状态 |
-|------|------|------|
-| 🎯 **Chat** | 灵活对话，支持 RAG + Web Search | ✅ |
-| 🧩 **Deep Solve** | 多步推理与解题 | ✅ |
-| 📝 **Quiz Generation** | 自动校验的题目生成 | ✅ |
-| 🔬 **Deep Research** | 多智能体综合研究 | ✅ |
-| 🎬 **Math Animator** | 数学动画/分镜图生成 | ✅ |
-| 📊 **Visualize** | SVG / Chart.js / Mermaid 可视化 | ✅ |
-| 🕸️ **Knowledge Graph** | 知识图谱构建（7种关系类型） | ✅ |
-| 🧠 **Memory Chat** | 三层记忆系统（短/中/长期） | ✅ |
-| 💡 **Socratic Dialog** | 苏格拉底式引导对话 | ✅ |
-| 📚 **Flashcard** | 艾宾浩斯间隔重复闪卡 | ✅ |
-| 🗺️ **Mindmap** | 思维导图生成 | ✅ |
-| 📖 **Content Manager** | 教材/PDF内容导入 | ✅ |
-| 📈 **Learning Guide** | 个性化学习计划 | ✅ |
-| 📊 **Assessment** | 学习测评 | ✅ |
-| 📋 **Parent Report** | 家长报告 | ✅ |
-| 🔊 **Audio Companion** | 播客式音频回顾 | ✅ |
-| 🎓 **Content Analyzer** | 内容深度分析 | ✅ |
+| 模块 | 功能 | 状态 | 说明 |
+|------|------|------|------|
+| 🎯 **Chat** | 灵活对话，支持 RAG + Web Search | ✅ | 已验证可用 |
+| 🧩 **Deep Solve** | 多步推理与解题 | ✅ | 已验证可用 |
+| 📝 **Quiz Generation** | 自动校验的题目生成 | ✅ | 已验证可用 |
+| 🔬 **Deep Research** | 多智能体综合研究 | ✅ | 已验证可用 |
+| 🎬 **Math Animator** | 数学动画/分镜图生成 | ✅ | 已验证可用 |
+| 📊 **Visualize** | SVG / Chart.js / Mermaid 可视化 | ✅ | 已验证可用 |
+| 🕸️ **Knowledge Graph** | 交互式知识图谱（D3.js，掌握度追踪） | ✅ | **新实现**：力导向图+树形目录+Expansion Agent |
+| 🧠 **Memory Chat** | 三层记忆系统（短/中/长期） | ✅ | 基座自带 |
+| 💡 **Socratic Dialog** | 苏格拉底式引导对话 | ✅ | **已实现**：3种模式+错误诊断+知识点关联 |
+| 📚 **Flashcard** | 艾宾浩斯间隔重复闪卡 | ⚠️ | 基础功能有，间隔重复逻辑待完善 |
+| 🗺️ **Mindmap** | 思维导图生成 | ⚠️ | 基础功能有，样式待优化 |
+| 📖 **Content Manager** | 教材/PDF内容导入 | ⚠️ | 能导入，缺少自动类型识别 |
+| 📈 **Learning Guide** | 个性化学习计划 | ✅ | **已实现**：拓扑排序排课+每日计划+API |
+| 📊 **Assessment** | 学习测评 | ✅ | **已实现**：4题型+自适应+掌握度更新 |
+| 📋 **Parent Report** | 家长报告 | ✅ | **已实现**：周报+掌握度+辅导建议 |
+| 🔊 **Audio Companion** | 播客式音频回顾 | ✅ | **已实现**：双人对话+硅基流动TTS+后台任务 |
+| 🎓 **Content Analyzer** | 内容自动识别+拆解 | ⚠️ | 框架完整，待验证 |
 
 ## 技术栈
 
