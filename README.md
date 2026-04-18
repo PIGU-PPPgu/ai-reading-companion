@@ -1,35 +1,107 @@
-# AI Reading Companion - 全教材AI学习伴侣
+# IntelliTutor - AI智能学习伴侣
 
-任意教材/内容的结构化学习平台。基于DeepTutor基座，支持K12全学科教材、课外读物、自定义内容的智能带读与学习。
+> 基于 [DeepTutor](https://github.com/HKUDS/DeepTutor)（Apache-2.0）构建的 K12 全学科智能学习平台
 
-## 技术架构
+## 截图
 
-- 基座: [DeepTutor](https://github.com/HKUDS/DeepTutor) (Apache-2.0)
-- 内容源: [ChinaTextbook](https://github.com/TapXWorld/ChinaTextbook) (全小初高教材)
-- LLM: GLM-5 / DeepSeek
-- TTS: 硅基流动
+### 📚 主页 & 知识库管理
+<table>
+<tr>
+<td><img src="screenshots/homepage.png" alt="Homepage" width="400"/></td>
+<td><img src="screenshots/knowledge.png" alt="Knowledge Base" width="400"/></td>
+</tr>
+</table>
 
-## 核心能力
+### 💬 智能对话 & 知识图谱
+<table>
+<tr>
+<td><img src="screenshots/chat-session.png" alt="Chat Session" width="400"/></td>
+<td><img src="screenshots/knowledge-graph.png" alt="Knowledge Graph" width="400"/></td>
+</tr>
+</table>
 
-1. **拆书/拆教材引擎** - 任意PDF/文本的结构化拆解(章节/知识点/考点)
-2. **个性化带读/带学** - 根据学生情况生成学习计划
-3. **苏格拉底对话** - 引导式提问，不直接给答案
-4. **测评系统** - 理解度检测，支持中考/高考题型
-5. **家长端** - 进度/理解度/周报/讨论指引
-6. **音频伴侣** - 播客式回顾
-7. **自定义内容** - 用户可上传任意教材/资料/书籍
+## 核心能力（17 Capabilities + 9 Tools）
 
-## 内容覆盖
+| 模块 | 功能 | 状态 |
+|------|------|------|
+| 🎯 **Chat** | 灵活对话，支持 RAG + Web Search | ✅ |
+| 🧩 **Deep Solve** | 多步推理与解题 | ✅ |
+| 📝 **Quiz Generation** | 自动校验的题目生成 | ✅ |
+| 🔬 **Deep Research** | 多智能体综合研究 | ✅ |
+| 🎬 **Math Animator** | 数学动画/分镜图生成 | ✅ |
+| 📊 **Visualize** | SVG / Chart.js / Mermaid 可视化 | ✅ |
+| 🕸️ **Knowledge Graph** | 知识图谱构建（7种关系类型） | ✅ |
+| 🧠 **Memory Chat** | 三层记忆系统（短/中/长期） | ✅ |
+| 💡 **Socratic Dialog** | 苏格拉底式引导对话 | ✅ |
+| 📚 **Flashcard** | 艾宾浩斯间隔重复闪卡 | ✅ |
+| 🗺️ **Mindmap** | 思维导图生成 | ✅ |
+| 📖 **Content Manager** | 教材/PDF内容导入 | ✅ |
+| 📈 **Learning Guide** | 个性化学习计划 | ✅ |
+| 📊 **Assessment** | 学习测评 | ✅ |
+| 📋 **Parent Report** | 家长报告 | ✅ |
+| 🔊 **Audio Companion** | 播客式音频回顾 | ✅ |
+| 🎓 **Content Analyzer** | 内容深度分析 | ✅ |
 
-- 数学: 人教版/北师大版/苏教版 全年级
-- 语文: 教材 + 中考必读12本名著 + 课外推荐
-- 英语: 教材 + 分级阅读
-- 物理/化学/生物/历史/地理/政治: 全年级教材
-- 自定义: 用户上传任意PDF/文本
+## 技术栈
 
-## 开发状态
+- **基座**: [DeepTutor](https://github.com/PIGU-PPPgu/DeepTutor) (Apache-2.0 fork)
+- **前端**: Next.js 16 + React 19 + TailwindCSS
+- **后端**: Python 3.12 + FastAPI + WebSocket
+- **LLM**: GPT-5.4 (via api.intellicode.top) / GLM-5 / DeepSeek
+- **Embedding**: Qwen3-Embedding-8B (4096维) via 硅基流动
+- **RAG**: LlamaIndex + 自定义知识库管线
+- **TTS**: 硅基流动 siliconflow-tts-001
 
-Phase 0: 基座搭建
+## 快速开始
+
+```bash
+# 1. 克隆项目
+git clone https://github.com/PIGU-PPPgu/ai-reading-companion.git
+cd ai-reading-companion
+
+# 2. 安装依赖（DeepTutor 子目录）
+cd deeptutor
+pip install -e ".[dev]"
+
+# 3. 配置环境变量
+cp .env.example .env
+# 编辑 .env 填入 LLM API key
+
+# 4. 启动后端
+python -m deeptutor serve --port 8001
+
+# 5. 启动前端
+cd web
+pnpm install
+PORT=3782 npx next dev -p 3782
+```
+
+访问 http://localhost:3782 即可使用。
+
+## 项目结构
+
+```
+ai-reading-companion/
+├── deeptutor/              # DeepTutor fork（核心引擎）
+│   ├── deeptutor/
+│   │   ├── capabilities/   # 17 个 Capability 插件
+│   │   ├── agents/         # ChatAgent, ResearchAgent 等
+│   │   ├── services/       # LLM, RAG, Memory 服务
+│   │   └── api/            # FastAPI 路由
+│   ├── web/                # Next.js 前端
+│   └── tests/              # 380+ 测试用例
+├── content/                # 教材内容（PDF）
+├── screenshots/            # 项目截图
+└── README.md
+```
+
+## 商业化
+
+基于 Apache-2.0 协议，允许：
+- ✅ 商业使用（无需付费）
+- ✅ 修改品牌/名称
+- ✅ 闭源分发
+- ⚠️ 需保留原始 LICENSE 和版权声明
 
 ## License
 
